@@ -1,0 +1,301 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #02050a; 
+    background-image: radial-gradient(circle at 50% 30%, rgba(0, 140, 255, 0.2), #02050a 65%);
+    color: #00d9ff;
+    font-family: 'Orbitron', sans-serif;
+    height: 100vh;
+   
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Roll chci jen uprostřed stránky (mainu) */
+}
+
+/* Vrchní část */
+header {
+    /* Zarovnání postavy na střed vodorovně a na dno svisle (Potřebuju, aby seděla na lince/lehce pod ní) */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    position: relative; /* Relative mám jako "kotvu" pro absolutní prvky uvnitř (h1, čára) */
+    width: 100%;
+    height: 350px;
+}
+
+header h1 {
+    /* Vytrhnutí nadpisu a přilepení do rohu */
+    position: absolute; 
+    top: 30px;
+    left: 60px;
+
+    font-size: 70px;
+    text-align: center; /* "Brána" pod slovem "Aetheronova" */
+    line-height: 1.2;
+
+    text-shadow: 0 0 10px #00d9ff;
+    z-index: 10; /* Aby byl nad vším */
+
+    letter-spacing: 2px;
+}
+
+.Aetheron img {
+    width: 350px;
+    height: auto;
+
+    display: block;
+    position: relative;
+
+    z-index: 1; /* Čára má vyšší číslo -> bude před postavou */
+    bottom: -5px; /* Utopení postavy pod linkou */
+
+    /* MASKA: Zprůhlední spodní okraj postavy, aby mizel do černé */
+    mask-image: linear-gradient(to top, transparent 2%, black 20%);
+    -webkit-mask-image: linear-gradient(to top, transparent 2%, black 20%);
+}
+
+/* Čára (oddělení headeru a mainu) */
+.tech-line {
+    position: absolute; /* Přilepená k obrázku */
+    bottom: 0; /* Úplně dole */
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: #00d9ff;
+
+    /* Záře až přes postavu */
+    box-shadow: 
+    0 0 10px #00d9ff,
+    0 0 20px #00d9ff;
+
+    z-index: 10; /* Je nad postavou */
+}
+
+/* Střed */
+main {
+    flex: 1; /* Flex 1 = sežer všechno volné místo na stránce (header a footer má výšku danou) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Odstup od čáry */
+    padding-top: 30px;
+    width: 100%;
+
+    /* Scrollování kvůli delšímu PROLOGU -> nevejde se na obrazovku -. posuvník pouze pro main, header zůstává */
+    overflow-y: auto;
+    padding-bottom: 50px; /* Místo dole pro dollorování pod text */
+}
+
+/* STYLOVÁNÍ POSUVNÍKU */
+/* Nechci ho bílej, hnusnej -> nezapadá do designu stránky */
+main::-webkit-scrollbar {
+    width: 8px;
+}
+
+main::-webkit-scrollbar-track {
+    background: #02050a;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #005f73;
+    border-radius: 4px;
+}
+
+.clock {
+    font-size: 120px;
+    font-weight: bold;
+    margin-bottom: 70px;
+    text-shadow: 0 0 20px #00d9ff;
+}
+
+/* FORMULÁŘ */
+.code-box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+input {
+    padding: 12px;
+    background: rgba(0, 20, 40, 0.6);
+    border: 1px solid #005f73;
+    color: #00d9ff;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    outline: none;
+}
+
+input:focus {
+    border-color: #00d9ff; /* Rozsvícení při kliknutí */
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.3);
+}
+
+button {
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #005f73;
+    color: #00d9ff;
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s; /* Plynulá změna barvy */
+}
+
+button:hover {
+    background: #00d9ff;
+    color: black;
+    box-shadow: 0 0 15px #00d9ff;
+}
+
+.note {
+    font-size: 15px;
+    color: #4a6fa5;
+}
+
+.note a {
+    color: #00d9ff;
+    text-decoration: none;
+}
+
+/* PŘÍBĚHOVÝ TERMINÁL */
+.story-terminal {
+    margin-top: 30px;
+    width: 80%;
+    max-width: 700px;
+
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    background: rgba(0, 10, 20, 0.9); /* Skoro neprůhledný pozadí -> čitelnost */
+    text-align: left;
+
+    font-family: 'Courier New', monospace; /* Jiný font pro příběh (Zvážit udělat root??) */
+    font-size: 14px;
+    color: #aaddff;
+    border-radius: 5px;
+
+    transition: 0.3ms;
+
+    flex-shrink: 0; /* Aby terminál neposkakoval při scrollování */
+}
+
+/* TLAČÍTKO PRO ROZBALOVÁNÍ */
+.story-terminal summary {
+    padding: 15px;
+    cursor: pointer;
+    background: rgba(0, 217, 255, 0.3);
+    font-weight: bold;
+    letter-spacing: 1px;
+    list-style: none; /* Chtěl jsem skrýt defaultní šipku zleva */
+    color: #ff5555;
+    text-shadow: 0 0 5px rgba(255, 85, 85, 0.5);
+    transition: 0.2s;
+
+    /* Zarovnání ikonky trjúhelníčku a textu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Mezera mezi ikonkou a textem */
+
+    border-top-left-radius: 5px; /* Zaoblení pouze levého a pravého horního rohu */
+    border-top-right-radius: 5px; /* Zaoblení pouze levého a pravého horního rohu */ 
+}
+
+.story-terminal summary:hover {
+    background: rgba(0, 217, 255, 0.15);
+    letter-spacing: 2px; /* Roztažení písmen */
+}
+
+/* Fix pro ikonku 2*/
+.story-terminal i {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 1.2em;
+}
+
+.story-content {
+    padding: 20px;
+    line-height: 1.8; /* Větší mezery mezi řádky pro lepší čtení */
+    border-top: 1px solid rgba(0, 217, 255, 0.3);
+    
+    max-height: 400px; /* Maximální výška textového okna */
+    overflow-y: auto; /* Pokud je text delší jak 400px, tak se vytvoří posuvník uvnitř okna */
+}
+
+.story-content h3 {
+    color: #00d9ff;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed rgba(0, 217, 255, 0.3);
+    padding-bottom: 5px;
+}
+
+.story-content p {
+    margin-bottom: 15px;
+}
+
+/* Stylování posuvníku terminálu (Scrollbar) */
+.story-content::-webkit-scrollbar {
+    width: 6px;
+}
+.story-content::-webkit-scrollbar-track {
+    background: #02050a;
+}
+.story-content::-webkit-scrollbar-thumb {
+    background: #005f73;
+    border-radius: 3px;
+}
+
+/* Footer */
+footer {
+    padding: 10px;
+    font-size: 12px;
+    color: #4a6fa5;
+    text-align: center;
+}
+
+/* Responsive Exceptions */
+@media (max-width: 768px) {
+    header {
+        height: 280px;
+    }
+
+    header h1 {
+        left: 0;
+        width: 100%;
+
+        text-align: center;
+        top: 20px;
+
+        font-size: 32px;
+    }
+
+    .Aetheron img {
+        width: 220px;
+    }
+
+    main {
+        padding-top: 20px 0 80px;
+    }
+
+    .clock {
+        font-size: 60px;
+        margin-bottom: 30px;
+    }
+
+    .code-box {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .story-terminal {
+        width: 90%;
+        font-size: 13px;
+    }
+}
