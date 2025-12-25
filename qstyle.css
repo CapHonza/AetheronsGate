@@ -1,4 +1,237 @@
+/* ========================
+   ZÁKLADNÍ NASTAVENÍ
+   ======================== */
 * {
     box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
 }
 
+body {
+    background-color: #02050a; 
+    /* FIX POZADÍ:
+       1. min-height zajistí, že se pozadí natáhne, i když je obsah dlouhý.
+       2. fixed zajistí, že gradient drží na místě a scroluje se jen text. */
+    min-height: 100vh; 
+    background-image: radial-gradient(circle at 50% 30%, rgba(0, 140, 255, 0.2), #02050a 65%);
+    background-attachment: fixed;
+    
+    color: #00d9ff;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========================
+   HEADER
+   ======================== */
+header {
+    height: 150px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 50px; /* Na kvíz stačí menší */
+    text-align: center;
+    text-shadow: 0 0 10px #00d9ff;
+    letter-spacing: 2px;
+}
+
+.tech-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #00d9ff;
+    box-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff;
+}
+
+/* ========================
+   HLAVNÍ KONTEJNER (Drží šířku)
+   ======================== */
+main {
+    flex: 1; /* Roztáhne se, aby patička byla dole */
+    display: flex;
+    justify-content: center; /* Všechno na střed */
+    padding-bottom: 50px;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px; /* Tohle zajistí to zarovnání "roh na roh" */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Mezera mezi Avatarem a Formulářem */
+}
+
+/* ========================
+   TOPPER (Avatar + Bublina)
+   ======================== */
+.topper {
+    display: flex;
+    align-items: center; /* Svisle na střed */
+    gap: 20px; /* Mezera mezi obrázkem a textem */
+}
+
+/* Obrázek */
+.avatar-wrapper img {
+    width: 120px; /* Velikost avatara */
+    height: auto;
+    border: 2px solid #00d9ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+    background: #000;
+}
+
+/* Bublina s textem */
+.speech-bubble {
+    position: relative;
+    background: rgba(0, 20, 40, 0.8); /* Poloprůhledná tmavá */
+    border: 1px solid #00d9ff;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1; /* Zabere zbytek místa vedle obrázku */
+    box-shadow: 0 0 10px rgba(0, 217, 255, 0.1);
+}
+
+/* Ten "zobáček" bubliny */
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px; /* Posun doleva mimo bublinu */
+    top: 50%;
+    transform: translateY(-50%);
+    
+    /* Vytvoření trojúhelníku pomocí borderů */
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #00d9ff transparent transparent;
+}
+
+.speech-bubble h3 {
+    margin-bottom: 5px;
+    color: #00d9ff; 
+}
+
+.speech-bubble p {
+    font-size: 14px;
+    color: #aaddff;
+    line-height: 1.4;
+    font-family: 'Courier New', monospace; /* Techničtější písmo pro řeč */
+}
+
+/* ========================
+   FORMULÁŘ (Otázky)
+   ======================== */
+.quiz-frame {
+    background: rgba(0, 10, 20, 0.8);
+    border: 1px solid #005f73;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.question-block {
+    margin-bottom: 20px;
+}
+
+.question-block h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #00d9ff;
+}
+
+/* Stylování možností */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid transparent; /* Průhledný rámeček, aby nic neposkakovalo při hoveru */
+    transition: 0.2s;
+    border-radius: 5px;
+}
+
+.option:hover {
+    background: rgba(0, 217, 255, 0.1);
+    border-color: #005f73;
+}
+
+/* Oddělovací čára */
+.separator {
+    border: 0;
+    height: 1px;
+    background: rgba(0, 217, 255, 0.3);
+    margin: 20px 0;
+}
+
+/* ========================
+   TLAČÍTKO
+   ======================== */
+.button-wrapper {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 15px 40px; /* Větší padding */
+    width: 100%; /* Roztáhneme ho na mobilu */
+    max-width: 300px; /* Ale na PC nebude větší než 300px */
+    
+    background: transparent;
+    border: 2px solid #00d9ff; /* Tlustší rámeček */
+    color: #00d9ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 2px;
+}
+
+button:hover {
+    background: #00d9ff;
+    color: #000;
+    box-shadow: 0 0 20px #00d9ff;
+}
+
+/* ========================
+   PATIČKA
+   ======================== */
+footer {
+    padding: 20px;
+    font-size: 12px;
+    color: #4a6fa5;
+    text-align: center;
+    border-top: 1px solid rgba(0, 217, 255, 0.1);
+}
+
+/* ========================
+   MOBILNÍ ÚPRAVY
+   ======================== */
+@media (max-width: 600px) {
+    .topper {
+        flex-direction: column; /* Na mobilu avatar nad textem */
+        text-align: center;
+    }
+    
+    .speech-bubble::before {
+        /* Změna šipky, aby ukazovala nahoru k avatarovi */
+        left: 50%;
+        top: -10px;
+        transform: translateX(-50%) rotate(90deg);
+    }
+}

@@ -3,49 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Úvodní Zkouška</title>
+    <title>Bezpečnostní Zkouška</title>
     <link rel="stylesheet" href="qstyle.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web/src/regular/style.css"/>
 </head>
 <body>
+
     <header>
-        <h1>Úvodní Zkouška</h1>
-        <div class="topper">
-            <img src="" alt="The Gatekeeper">
-            <h3>Vítej u Úvodní Zkoušky, Poutníku</h3>
-        </div>
+        <h1>Bezpečnostní Zkouška</h1>
+        <div class="tech-line"></div>
     </header>
+
     <main>
-        <fieldset>
-            <legend>
-                <label for=""></label>
-                <input type="text">
-            </legend>
-            <legend>
-                <label for=""></label>
-                <input type="text">
-            </legend>
-            <legend>
-                <label for=""></label>
-                <input type="text">
-            </legend>
-            <legend>
-                <label for=""></label>
-                <input type="text">
-            </legend>
-            <legend>
-                <label for=""></label>
-                <input type="text">
-            </legend>
-        </fieldset>
-        <button>
-            ODESLAT
-        </button>
+        <div class="container">
+
+            <div class="topper">
+                <div class="avatar-wrapper">
+                    <img src="Obrazky/Aetheron2.png" alt="Gatekeeper">
+                </div>
+                
+                <div class="speech-bubble">
+                    <h3>Vítej, Poutníku.</h3>
+                    <p>Abych ti mohl zpřístupnit archiv, musím si ověřit tvé znalosti o Aetheronu. Vyplň tento protokol.</p>
+                </div>
+            </div>
+
+            <form class="quiz-frame">
+                
+                <div class="question-block">
+                    <h4>1. Kdo je stvořitelem Aetheronu?</h4>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q1" value="a"> <span>Profesor X</span></label>
+                        <label class="option"><input type="radio" name="q1" value="b"> <span>Dr. Aetheron</span></label>
+                        <label class="option"><input type="radio" name="q1" value="c"> <span>Neznámý</span></label>
+                    </div>
+                </div>
+
+                <hr class="separator">
+
+                <div class="question-block">
+                    <h4>2. Jakou barvu má jádro?</h4>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q2" value="a"> <span>Červenou</span></label>
+                        <label class="option"><input type="radio" name="q2" value="b"> <span>Modrou</span></label>
+                    </div>
+                </div>
+
+                <hr class="separator">
+
+                <div class="question-block">
+                    <h4>3. Kde se nachází brána?</h4>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3" value="a"> <span>V Praze</span></label>
+                        <label class="option"><input type="radio" name="q3" value="b"> <span>Na Marsu</span></label>
+                    </div>
+                </div>
+
+                <div class="button-wrapper">
+                    <button type="button" id="submit-quiz">ODESLAT ODPOVĚDI</button>
+                </div>
+
+            </form>
+        </div>
     </main>
+
     <footer>
         &copy; Jan Čáp | 2025 | Univerzita Karlova
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>
