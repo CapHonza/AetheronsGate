@@ -54,5 +54,48 @@ function vyhodnotitQuiz() {
     if (o5 === "tma") {
         skore++;
     }
-    console.log("Počet bodů: " + skore);
+
+    // Hledání Overlaye v HTML
+    const overlay = document.querySelector('#overlay-container');
+    const nadpis = document.querySelector('#overlay-nadpis');
+    const text = document.querySelector('#overlay-text');
+    const box = document.querySelector('.overlay-box');
+
+    box.classList.remove('win', 'lose');
+
+    // Nastavení textu podle výsledku
+    // classList win/lose je v CSS u tlačítek. Odtud si bere barvu
+    if (skore === 5) {
+        box.classList.add('win');
+        nadpis.innerText = "[ SYSTEM SYNC: 100% ]";
+        text.innerText = `Analýza dokončena. Tvůj myšlenkový vzorec odpovídá frekvenci Nexu. Jsi ten, na kterého jsme čekali. Entropie ustupuje.
+        
+        Tvá mysl je klíčem.
+
+        PŘÍSTUPOVÝ KÓD: ANDROMEDA
+
+        (Vrať se k Bráně a zadej kód. Nezapomeň ho. V chaosu je paměť tvou jedinou zbraní.)`;
+
+    }
+    else {
+        box.classList.add('lose');
+        nadpis.innerText = "[ ERROR: SIGNAL LOST ]";
+        text.innerText = `Detekována inkoherence. Tvá mysl je stále zastřena šumem vnějšího světa. Spojení s Nexem nelze navázat.
+
+        Nezoufej, Poutníku. Čas je zde relativní.
+
+        Zklidni svou mysl, přeformátuj své odpovědi a pokus se o synchronizaci znovu.`;
+    }
+
+    // Zobrazení Overlaye (přiřazení třídy active)
+    overlay.classList.add('active');
+}
+
+// Funkce pro zavření Overlaye
+function zavritOverlay() {
+    document.querySelector('#overlay-container').classList.remove('active');
+}
+
+if (heslo === ANDROMEDA) {
+    
 }

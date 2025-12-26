@@ -119,10 +119,24 @@
     </main>
 
     <footer>
-        &copy; <a href="https://caphonza.github.io/PersonalPortfolio/" target="_blank" class="author-link">Jan Čáp</a> | 2025 | Univerzita Karlova
+        &copy; <a href="https://caphonza.github.io/PersonalPortfolio/" target="_blank" class="author-link">Jan Čáp</a> |
+        2025 | Univerzita Karlova
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Vyskakovací tabulka po vyhodnocení -->
+    <div class="overlay" id="overlay-container">
+        <div class="overlay-box">
+            <h2 id="overlay-nadpis">VÝSLEDEK ZKOUŠKY</h2>
+            <p id="overlay-text">Text se doplní sám...</p>
+
+            <div class="overlay-buttons">
+                <button onclick="zavritOverlay()" class="btn close-btn">ZAVŘÍT</button>
+                <a href="index.html" class="btn home-btn">K BRÁNĚ</a>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

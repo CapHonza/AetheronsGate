@@ -1,7 +1,7 @@
 REAKCE NA KVÍZ (Trial.html - Po vyhodnocení)
     Co systém vypíše, když uživatel klikne na "Odeslat odpovědi".
 
-    Varianta A: ÚSPĚCH (Všechno správně) Styl: Zelená, terminálová barva. Působí to jako úspěšné "hacknutí" nebo synchronizace.
+    Varianta A: ÚSPĚCH (Všechno správně)
 
         [ SYSTEM SYNC: 100% ]
 
@@ -9,11 +9,11 @@ REAKCE NA KVÍZ (Trial.html - Po vyhodnocení)
 
         Tvá mysl je klíčem.
 
-        PŘÍSTUPOVÝ KÓD: OMEGA
+        PŘÍSTUPOVÝ KÓD: ANDROMEDA
 
         (Vrať se k Bráně a zadej kód. Nezapomeň ho. V chaosu je paměť tvou jedinou zbraní.)“
 
-    Varianta B: SELHÁNÍ (Chyba) Styl: Červená/Oranžová, "Glitch" efekt. Působí to, jako by se spojení rozpadalo.
+    Varianta B: SELHÁNÍ (Chyba)
 
         [ ERROR: SIGNAL LOST ]
 

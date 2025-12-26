@@ -359,8 +359,149 @@ footer {
 
 .author-link:hover {
     color: #00d9ff;
-    text-shadow: 0 0 8px rgba(0, 217, 255, 0.6); /* Přidání záře */
+    text-shadow: 0 0 8px rgba(0, 217, 255, 0.6);
+    /* Přidání záře */
     cursor: pointer;
+}
+
+/* OVERLAY  */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Ztmavení pozadí */
+    backdrop-filter: blur(5px);
+    /* Rozmazání obsahu pod ním */
+
+    /* Vycentrování overlaye */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Skrytí overlaye */
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 1000;
+    /* Aby byl úplně nahoře */
+}
+
+/* Tuhle třídu přidá JavaScript */
+.overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Vzhled obdélníku */
+.overlay-box {
+    background-color: rgba(10, 15, 30, 0.95);
+    border: 2px solid #00d9ff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+    color: white;
+
+    max-width: 600px;
+    width: 90%;
+
+    white-space: pre-line;
+    line-height: 1.6;
+
+    padding: 30px;
+    text-align: center;
+}
+
+/* Styly pro ÚSPĚCH (přidá JS) */
+.overlay-box.win {
+    border-color: #00ffcc;
+    /* Neonová tyrkysová */
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+}
+
+.overlay-box.win h2 {
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.overlay-box.win .close-btn:hover {
+    background-color: tgba(0, 255, 204, 0.1);
+    box-shadow: 0 0 15px #00ffcc;
+    border-color: #00ffcc;
+    color: #00ffcc;
+}
+
+/* Styly pro NEÚSPĚCH (přidá JS) */
+.overlay-box.lose {
+    border-color: #ff3333;
+    /* Neonová červená */
+    box-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
+}
+
+.overlay-box.lose h2 {
+    color: #ff3333;
+    text-shadow: 0 0 10px rgba(255, 51, 51, 0.5);
+}
+
+.overlay-box.lose .close-btn:hover {
+    background-color: rgba(255, 51, 51, 0.1);
+    box-shadow: 0 0 15px #ff3333;
+    border-color: #ff3333;
+    color: #ff3333;
+}
+
+/* Tlačítka */
+.overlay-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* Mezera mezi tlačítky */
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 25px;
+    background: transparent;
+    border: 1px solid;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+    /* paddingy u odkazu */
+}
+
+/* Tlačítko ZAVŘÍT */
+.close-btn {
+    color: inherit;
+    border-color: currentColor;
+    opacity: 0.7;
+    background: transparent;
+}
+
+.close-btn:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px currentColor;
+}
+
+/* Tlačítko K BRÁNĚ */
+.home-btn {
+    border: 2px solid #00d9ff;
+    /* Tlustší rámeček */
+    border-radius: 5px;
+    color: #00d9ff;
+}
+
+.home-btn:hover {
+    color: #000;
+    background: #00d9ff;
+    box-shadow: 0 0 20px #00d9ff;
 }
 
 /* Responsive Exceptions */
