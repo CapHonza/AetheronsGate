@@ -10,6 +10,7 @@ html, body {
     width: 100%;
     background: radial-gradient(circle at center, #050b18 0%, #02050a 100%);
     background-attachment: fixed;
+    background-color: #02050a;
     overflow-x: hidden;
 }
 
@@ -368,6 +369,12 @@ footer {
 
 /* Responsive Exceptions */
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+        min-height: 100dvh;
+    }
+
     /* Celé okno */
     .window {
         display: flex;
@@ -527,7 +534,6 @@ footer {
         display: block;
         padding: 5px;
         font-size: 10px;
-        background: #000;
         flex: 0 0 auto;
     }
 
