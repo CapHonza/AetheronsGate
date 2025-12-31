@@ -8,7 +8,8 @@
 html, body {
     height: 100%;
     width: 100%;
-    background-color: #000;
+    background: radial-gradient(circle at center, #050b18 0%, #02050a 100%);
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 
@@ -367,16 +368,53 @@ footer {
 
 /* Responsive Exceptions */
 @media (max-width: 768px) {
+    /* Celé okno */
+    .window {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        height: 100dvh; /* Vynucení výšky displeje -> fungování vnitřního scrollování */
+    }
+
+    /* Header */
+    .top-header {
+        padding: 10px 10px 5px 10px;
+        gap: 5px;
+        flex: 0 0 auto;
+    }
+
     .top-header h1 {
-        font-size: 40px;
+        font-size: 28px;
+        margin-bottom: 0;
+    }
+
+    .header-desc {
+        display: block;
+        font-size: 11px;
+        line-height: 1.2;
+        margin-bottom: 5px;
+        padding: 0 10px;
     }
 
     .bottom-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        gap: 15px;
-        padding: 20px 10px;
+        gap: 5px;
+        padding: 5px;
+        font-size: 14px;
+        flex: 0 0 auto;
+        border-bottom: 1px solid var(--neon-blue);
+    }
+
+    .avatar-wrapper img {
+        width: 40px;
+        border-radius: 3px;
     }
 
     .vertical-slash {
@@ -387,17 +425,26 @@ footer {
         margin: 0;
     }
 
+    /* OBSAH */
     .content-wrapper {
+        display: flex;
         flex-direction: column;
         height: auto;
+        flex: 1; /* Vezme si zbytek místa */
+        overflow: hidden;
+        min-height: 0; /* Pro správný výpočet flexboxu */
     }
 
+    /* Netflix lišta */
     aside {
         width: 100%;
         height: auto;
+        padding: 0;
 
         display: flex;
         flex-direction: row;
+        flex: 0 0 auto;
+
         overflow-x: auto;
         overflow-y: hidden; /* Zakazuje svislí scroll */
         white-space: nowrap; /* Zabraňuje lámání tlačítek pod sbe */
@@ -410,25 +457,81 @@ footer {
     }
 
     aside button {
-        flex: 0 0 140px; /* Fixní šířka 140px */
-        height: 70px;
+        flex: 0 0 100px; /* Fixní šířka 140px */
+        height: 50px;
         border-bottom: none;
         border-right: 1px solid var(--dark-teal);
-        font-size: 13px;
-        padding: 5px 10px;
+        font-size: 11px;
+        padding: 5px;
     }
 
+    /* Čtecí zóna */
     main {
-        height: 70vh;
-        min-height: 200px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .reading-area {
+        flex: 1;
+        overflow-y: auto;
+        padding: 15px;
+    }
+
+    .reading-area h3 {
+        margin-top: 0;
+        font-size: 18px;
     }
 
     .subtitle {
-        font-size: 20px;
-        line-height: 3.5;
+        font-size: 16px;
+        line-height: 1.5;
         text-align: center;
     }
 
+    /* Interaktivní zóna */
+    .interactive-area {
+        padding: 10px;
+        gap: 5px;
+        background: rgba(0, 10, 20, 0.5);
+    }
+
+    .interactive-area h3 {
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+
+    .interactive-area p {
+        font-size: 11px;
+        padding-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .interactive-area button {
+        margin-top: 5px;
+        padding: 6px;
+        font-size: 12px;
+        height: 35px;
+    }
+
+    input {
+        padding: 6px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    /* Footer */
+    footer {
+        display: block;
+        padding: 5px;
+        font-size: 10px;
+        background: #000;
+        flex: 0 0 auto;
+    }
+
+    /* Přepínání textů */
     .dpanel {display: none;}
     .mpanel {display: inline;}
 }
