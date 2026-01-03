@@ -364,7 +364,7 @@ function nactiUlozenyPostup() {
         // Podíváme se do paměti
         const stav = localStorage.getItem(tlacitko.id);
         
-        console.log("Kontroluji ID:", tlacitko.id, "Stav v paměti:", stav); // Tohle ti napoví v konzoli (F12)
+        console.log("Kontroluji ID:", tlacitko.id, "Stav v paměti:", stav); // Nápověda problému v konzoli
 
         if (stav === "odemceno") {
             tlacitko.classList.remove('locked-record');

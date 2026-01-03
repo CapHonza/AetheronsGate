@@ -144,7 +144,7 @@ main {
     border-color: transparent var(--neon-blue) transparent transparent;
 }
 
-.speech-bubble h3 {
+.speech-bubble h2 {
     font-size: 22px;
     margin-bottom: 5px;
     color: var(--neon-blue);
@@ -169,7 +169,7 @@ main {
     margin-bottom: 20px;
 }
 
-.question-block h4 {
+.question-block h3 {
     margin-bottom: 15px;
     font-size: 18px;
     color: var(--neon-blue);

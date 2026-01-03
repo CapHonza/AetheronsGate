@@ -267,7 +267,7 @@ button:hover {
     /* Pokud je text delší jak 400px, tak se vytvoří posuvník uvnitř okna */
 }
 
-.story-content h3 {
+.story-content h2 {
     color: var(--neon-blue);
     margin-bottom: 10px;
     border-bottom: 1px dashed rgba(0, 217, 255, 0.3);
@@ -385,7 +385,7 @@ footer {
     }
 
     main {
-        padding-top: 20px 0 80px;
+        padding-top: 20px;
     }
 
     .clock {

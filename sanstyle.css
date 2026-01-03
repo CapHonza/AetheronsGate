@@ -201,6 +201,10 @@ main {
     text-shadow: 0 0 10px var(--neon-blue);
 }
 
+.reading-area h3 {
+    font-size: 30px;
+}
+
 .reading-area p {
     line-height: 1.4;
     margin-bottom: 17px;
@@ -323,6 +327,18 @@ aside button {
     border-bottom: 1px solid var(--dark-teal);
     line-height: 1.4;
     transition: 0.5s;
+}
+
+aside button .btn-nadpis {
+    display: block;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+aside button .btn-popis {
+    display: block;
+    font-size: 0.9em;
 }
 
 .interactive-area button {
@@ -527,12 +543,18 @@ footer {
         padding: 15px;
     }
 
-    .reading-area h3 {
+    .reading-area h2, .reading-area h4 {
         margin-top: 0;
         font-size: 18px;
     }
 
     .subtitle {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .panel-instruction {
         font-size: 16px;
         line-height: 1.5;
         text-align: center;

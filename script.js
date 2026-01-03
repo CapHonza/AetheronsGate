@@ -56,11 +56,13 @@ if (tlacitkoBrana) {
 
 // Tlačítko reagující na Enter
 const vstupniInput = document.querySelector('.code-box input');
-vstupniInput.addEventListener('keydown', (odemknout) => {
-    if (odemknout.key === 'Enter') {
-        tlacitkoBrana.click()
-    }
-});
+if (vstupniInput) {
+    vstupniInput.addEventListener('keydown', (odemknout) => {
+        if (odemknout.key === 'Enter') {
+            tlacitkoBrana.click()
+        }
+    })
+};
 
 /* =========================================
     ČÁST 2: ZKOUŠKA (Quiz.html)
