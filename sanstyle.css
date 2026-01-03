@@ -172,28 +172,45 @@ main {
 
 /* Čtecí zóna */
 .reading-area {
-    text-align: center;
+    text-align: left;
+    margin: 0 auto;
+
     hyphens: auto;
     border-bottom: 1px solid var(--neon-blue);
-    padding: 10px;
+    padding: 30px;
     overflow-y: auto;
     flex: 1;
-    font-family: var(--font-story);
+    font-family: var(--font-main);
 
     scrollbar-color: var(--neon-blue) transparent;
-    scrollbar-width: thin
+    scrollbar-width: thin;
 }
 
 .reading-area.story-mode {
     text-align: justify;
-    padding: 30px;
 }
 
-.reading-area h3 {
+.reading-area h2 {
     text-align: center;
     font-family: var(--font-main);
     color: var(--neon-blue);
+
+    margin-top: 0;
     margin-bottom: 20px;
+    font-size: 2rem;
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.reading-area p {
+    line-height: 1.4;
+    margin-bottom: 17px;
+}
+
+.reading-area b,
+.reading-area strong {
+    font-weight: bold;
+    text-shadow: none;
+    letter-spacing: 0.5px;
 }
 
 .subtitle {
@@ -208,9 +225,32 @@ main {
     font-size: 32px;
     font-weight: bold;
     font-family: var(--font-main);
+    text-align: center;
 }
 
-/* Interaktivní zóna */
+/* =================================================
+HŘIŠTĚ PRO TŘÍDY RŮZNÝCH ÚKOLŮ V INTERAKTIVNÍ ZÓNĚ 
+================================================= */
+/* Speciální třída pro JS, aby bylo tučné jen něco (např.: záznam 001 v textu) */
+.sifra {
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    font-size: 1.2em;
+}
+
+/* Styl pro kódové fragmenty v příběhu */
+.code-fragment {
+    font-family: 'Courier New', monospace; /* Strojové písmo */
+    color: #ff00ff; /* Purpurová barva (jako glitch/chyba) */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+/* ===========
+KONEC HŘIŠTĚ 
+=========== */
+
+/* INTERAKTIVNÍ ZÓNA */
 .interactive-area {
     flex: 0 0 auto;
     display: flex;
@@ -227,7 +267,7 @@ main {
 .interactive-area h3 {
     padding: 0 0 5px 0;
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-shadow: 0 0 10px var(--neon-blue);
 }
 
@@ -235,8 +275,8 @@ main {
     padding: 0 0 15px 0;
     margin: 0;
     font-style: italic;
-    font-family: var(--font-story);
-    font-size: 0.9rem;
+    font-family: var(--font-main);
+    font-size: 1rem;
     max-width: 800px;
 }
 
